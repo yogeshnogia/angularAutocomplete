@@ -1,0 +1,11 @@
+<div class="row" ng-controller="mainController">
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Search with $http: {{asyncSelected | json}}</label>
+        <input type="text" ng-model="asyncSelected" uib-typeahead="query for query in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="input-bar">
+        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+        <div ng-show="noResults">
+            <i class="glyphicon glyphicon-remove"></i> No Results Found
+        </div>
+    </md-input-container>
+    <md-button class="md-raised md-primary" type="submit">Table</md-button>
+</div>

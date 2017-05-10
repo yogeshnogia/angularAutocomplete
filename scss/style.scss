@@ -1,0 +1,26 @@
+$fontColor: #4d4d4d;
+
+body{
+   color: $fontColor;
+   margin: 0;
+   padding: 0;
+   background: #fff;
+}
+
+html.md-default-theme, html, body.md-default-theme, body  {
+   background-color: white;
+}
+
+.main-div{
+   width: 800px;
+   margin: 0 auto;
+   text-align: center;
+   margin-top: 20px;
+}
+
+.input-bar {
+   font-size: 32px;
+   color: #E91E63 !important;
+   font-weight: 400;
+}
+
