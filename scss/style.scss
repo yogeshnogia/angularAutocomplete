@@ -24,3 +24,16 @@ html.md-default-theme, html, body.md-default-theme, body  {
    font-weight: 400;
 }
 
+.table {
+   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+   margin-top: 35px;
+}
+
+tr {
+   transition: all 0.25 ease-in-out;
+}
+
+tr:hover{
+   transform: scale(1.08px);
+   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}

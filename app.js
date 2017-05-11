@@ -20,8 +20,6 @@ kristal.config(['$routeProvider', '$locationProvider', function($routeProvider, 
 }]);
 
 
-
-
 kristal.controller('mainController', ['$scope', '$log', '$http', function($scope, $log, $http) {
 
 
@@ -53,7 +51,7 @@ kristal.controller('mainController', ['$scope', '$log', '$http', function($scope
     $scope.assetdetail = function(val) {
         $http.get('https://staging.investo2o.com/assetmanager-ws/api/v3/getassetdetails', {
             params: {
-                asset: $scope.fundName,
+                asset: JSON.parse($scope.fundName. id),
                 type: "STK",
                 isCustom: false
             },
