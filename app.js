@@ -1,5 +1,5 @@
 //Module
-var kristal = angular.module('kristal', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+var kristal = angular.module('kristal', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ngStorage']);
 
 //Routes
 kristal.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -14,14 +14,12 @@ kristal.config(['$routeProvider', '$locationProvider', function($routeProvider, 
         enabled: true,
         requireBase: false
     });
-
-
-
 }]);
 
 
-kristal.controller('mainController', ['$scope', '$log', '$http', function($scope, $log, $http) {
+kristal.controller('mainController', ['$scope', '$log', '$http', '$sessionStorage', '$localStorage', function($scope, $log, $http, $sessionStorage, $localStorage) {
 
+    $scope.i;
 
     $scope.getLocation = function(val) {
         return $http.get('https://staging.investo2o.com/assetmanager-ws/api/v1/assets/getassets', {
@@ -38,7 +36,7 @@ kristal.controller('mainController', ['$scope', '$log', '$http', function($scope
                 "Agent": "agent",
             }
         }).then(function successCallback(response) {
-            console.log(response);
+
             $scope.details = response.data;
             return response.data;
 
@@ -51,7 +49,7 @@ kristal.controller('mainController', ['$scope', '$log', '$http', function($scope
     $scope.assetdetail = function(val) {
         $http.get('https://staging.investo2o.com/assetmanager-ws/api/v3/getassetdetails', {
             params: {
-                asset: JSON.parse($scope.fundName. id),
+                asset: JSON.parse($scope.fundName.id),
                 type: "STK",
                 isCustom: false
             },
@@ -65,10 +63,18 @@ kristal.controller('mainController', ['$scope', '$log', '$http', function($scope
             }
         }).then(function successCallback(response) {
             console.log(response);
+            $localStorage.message = response.data;
             $scope.x = response.data;
         }, function errorCallback(response) {
-            console.log(response)
+            console.log(response);
         });
+
+        angular.element('.table-div').addClass('op');
+    }
+
+    $scope.compare = function(value) {
+        $scope.save = $localStorage.message;
+        console.log($scope.save);
     }
 
 }]);

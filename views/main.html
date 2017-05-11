@@ -1,6 +1,6 @@
 <div class="row" ng-controller="mainController">
     <md-input-container class="md-block" flex-gt-sm>
-        <label>Search with $http:</label> 
+        <label>Search with $http:</label>
         <!-- <label>{{fundName | json}}</label> -->
         <input type="text" ng-model="fundName" uib-typeahead="query as query.name for query in getLocation($viewValue) | limitTo:10" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="input-bar">
         <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
@@ -9,43 +9,120 @@
         </div>
     </md-input-container>
     <md-button class="md-raised md-primary" style="padding: 2px 17px;" type="submit" ng-click="assetdetail(val)">Fetch Asset Details</md-button>
-    <h1> {{ x.contractName }} </h1>
-    <div class="">
-        <table class="table table-striped">
-            <tbody>
-                <tr>
-                    <th>Contract Name</th>
-                    <td> {{ x.contractName }}  </td>
-                </tr>
-                <tr>
-                    <th scope="row">Symbol</th>
-                    <td> {{ x.symbol }}  </td>
-                </tr>
-               
-                <tr>
-                    <th scope="row">Currency</th>
-                    <td> {{ x.currency }}  </td>
-                </tr>
-                
-                <tr>
-                    <th scope="row">Pricing Date</th>
-                    <td> {{ x.pricingDate }}  </td>
-                </tr>
-                <tr>
-                    <th scope="row">Last Price</th>
-                    <td> {{ x.lastPrice }}  </td>
-                </tr>
-               
-                <tr>
-                    <th scope="row">High Price</th>
-                    <td> {{ x.highPrice }}  </td>
-                </tr>
-                <tr>
-                    <th scope="row">Low Price</th>
-                    <td> {{ x.lowPrice }}  </td>
-                </tr>
-            </tbody>
-        </table>
+    <md-button class="md-raised md-primary" style="padding: 2px 17px;" type="submit" ng-click="compare(value)">Add for comapre</md-button>
+    <div id="main-table-div">
+        <div class="table-div">
+            <h3 class="center">Current Asset Details</h3>
+            <table class="centered responsive-table highlight striped">
+                <tbody>
+                    <tr>
+                        <td>Contract Name</td>
+                        <td> {{ x.contractName }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Symbol</td>
+                        <td> {{ x.symbol }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Currency</td>
+                        <td> {{ x.currency }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Pricing Date</td>
+                        <td> {{ x.pricingDate }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Last Price</td>
+                        <td> {{ x.lastPrice }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">High Price</td>
+                        <td> {{ x.highPrice }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Low Price</td>
+                        <td> {{ x.lowPrice }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-div">
+        <h3 class="center">Compare between Assets</h3>
+            <table class="centered responsive-table highlight striped">
+                <tbody>
+                    <tr>
+                        <td> &nbsp; </td>
+                        <td>Contract Name</td>
+                        <td>Symbol</td>
+                        <td>Currency</td>
+                        <td>Pricing Date</td>
+                        <td>Last Price</td>
+                        <td>High Price</td>
+                        <td>Low Price</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">1</td>
+                        <td> {{ save.contractName }} </td>
+                        <td> {{ save.symbol }} </td>
+                        <td> {{ save.currency }} </td>
+                        <td> {{ save.pricingDate }} </td>
+                        <td> {{ save.lastPrice }} </td>
+                        <td> {{ save.highPrice }} </td>
+                        <td> {{ save.lowPrice }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td> {{ save.contractName }} </td>
+                        <td> {{ save.symbol }} </td>
+                        <td> {{ save.currency }} </td>
+                        <td> {{ save.pricingDate }} </td>
+                        <td> {{ save.lastPrice }} </td>
+                        <td> {{ save.highPrice }} </td>
+                        <td> {{ save.lowPrice }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">3</td>
+                        <td> {{ save.contractName }} </td>
+                        <td> {{ save.symbol }} </td>
+                        <td> {{ save.currency }} </td>
+                        <td> {{ save.pricingDate }} </td>
+                        <td> {{ save.lastPrice }} </td>
+                        <td> {{ save.highPrice }} </td>
+                        <td> {{ save.lowPrice }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">4</td>
+                        <td> {{ save.contractName }} </td>
+                        <td> {{ save.symbol }} </td>
+                        <td> {{ save.currency }} </td>
+                        <td> {{ save.pricingDate }} </td>
+                        <td> {{ save.lastPrice }} </td>
+                        <td> {{ save.highPrice }} </td>
+                        <td> {{ save.lowPrice }} </td>
+                    </tr>
+                   <tr>
+                        <td scope="row">5</td>
+                        <td> {{ save.contractName }} </td>
+                        <td> {{ save.symbol }} </td>
+                        <td> {{ save.currency }} </td>
+                        <td> {{ save.pricingDate }} </td>
+                        <td> {{ save.lastPrice }} </td>
+                        <td> {{ save.highPrice }} </td>
+                        <td> {{ save.lowPrice }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">6</td>
+                        <td> {{ save.contractName }} </td>
+                        <td> {{ save.symbol }} </td>
+                        <td> {{ save.currency }} </td>
+                        <td> {{ save.pricingDate }} </td>
+                        <td> {{ save.lastPrice }} </td>
+                        <td> {{ save.highPrice }} </td>
+                        <td> {{ save.lowPrice }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <!--

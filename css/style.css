@@ -1,37 +1,93 @@
 body {
-  color: #4d4d4d;
-  margin: 0;
-  padding: 0;
-  background: #fff;
+    color: #4d4d4d;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-html.md-default-theme, html, body.md-default-theme, body {
-  background-color: white;
+html::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    z-index: 2;
+    background-color: #ac2aa1;
+    background: -webkit-linear-gradient(45deg, #6b15a1, #ac2aa1);
+    background: linear-gradient(45deg, #6b15a1, #ac2aa1);
+}
+
+html.md-default-theme,
+html,
+body.md-default-theme,
+body {
+    background-color: white;
+}
+
+h1 {
+  font-size: 2.2rem !important;
+}
+
+a{
+  font-size: 17px !important;
 }
 
 .main-div {
-  width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 20px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
 }
 
 .input-bar {
-  font-size: 32px;
-  color: #E91E63 !important;
-  font-weight: 400;
+    font-size: 32px !important;
+    color: #ac2aa1 !important;
+    font-weight: 400;
+    height: 48px !important;
 }
 
 .table {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  margin-top: 35px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    margin-top: 35px;
 }
 
 tr {
-  transition: all 0.25 ease-in-out;
+    transition: all 0.25 ease-in-out;
 }
 
 tr:hover {
-  transform: scale(1.08px);
+    transform: scale(1.08px);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+#main-table-div {
+  display: flex;
+  margin-top: 42px;
+}
+
+.table-div {
+  margin-right: 20px;
+  min-width: 350px;
+  transition: 0.25s all ease-in-out;
+  opacity: 0;
+}
+
+.table-div:hover {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
+
+.center {
+    text-align: center;
+    color: #9E9E9E;
+    font-size: 21px;
+}
+
+.op {
+  opacity: 1 !important;
+}
+
+
+
+
