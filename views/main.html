@@ -1,11 +1,49 @@
 <div class="row" ng-controller="mainController">
     <md-input-container class="md-block" flex-gt-sm>
-        <label>Search with $http: {{asyncSelected | json}}</label>
-        <input type="text" ng-model="asyncSelected" uib-typeahead="query for query in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="input-bar">
+        <label>Search with $http: {{fundName | json}}</label>
+        <input type="text" ng-model="fundName" uib-typeahead="query as query.name for query in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="input-bar">
         <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
         <div ng-show="noResults">
             <i class="glyphicon glyphicon-remove"></i> No Results Found
         </div>
     </md-input-container>
-    <md-button class="md-raised md-primary" type="submit">Table</md-button>
+    <md-button class="md-raised md-primary" type="submit" ng-click="assetdetail(val)">Table</md-button>
+    <h1 ng-repeat="detail in details | limitTo:1"> {{ detail.name }} </h1>
+
+
+<div class="">
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th> {{ x.contractName }} </th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+<!--
+
+uib-typeahead="detail as detail.name for detail in getLocation.details($viewValue)" -->

@@ -19,6 +19,9 @@ kristal.config(['$routeProvider', '$locationProvider', function($routeProvider, 
 
 }]);
 
+
+
+
 kristal.controller('mainController', ['$scope', '$log', '$http', function($scope, $log, $http) {
 
 
@@ -37,10 +40,48 @@ kristal.controller('mainController', ['$scope', '$log', '$http', function($scope
                 "Agent": "agent",
             }
         }).then(function successCallback(response) {
-            console.log("GREAT");
+            console.log(response);
+            $scope.details = response.data;
+            return response.data;
+
         }, function errorCallback(response) {
             console.log(response)
         });
     };
 
+
+    $scope.assetdetail = function(val) {
+        $http.get('https://staging.investo2o.com/assetmanager-ws/api/v3/getassetdetails', {
+            params: {
+                asset: $scope.fundName,
+                type: "STK",
+                isCustom: false
+            },
+            headers: {
+                "Access-Token": "eWEyOS5HbHNwQkRCVUJPX2d0UUNGUVR4Z1NKRTgzUkdCWHB2V1NCbWwtckNHWW5iS05NSjJLY0J5YU5CeU5QWFhTU3R5N1phdTctd250aW15dk5ZUFcySEt3ckpxNUdCNFhwQzYyNGVQcnlKSWlYa21Fa0xvQ0hIZ1kxZVRjaU0wJVVTRVIlMzc5",
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Access-Control-Allow-Origin": "<origin> | *",
+                "User-ID": "379",
+                "User-IP": "0.0.0.0",
+                "Agent": "agent",
+            }
+        }).then(function successCallback(response) {
+            console.log(response);
+            $scope.x = response.data;
+        }, function errorCallback(response) {
+            console.log(response)
+        });
+    }
+
 }]);
+
+
+
+
+/* 
+return response.data.results.map(function(item){
+        return item.formatted_address;
+      });
+
+
+*/
