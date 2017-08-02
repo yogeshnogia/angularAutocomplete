@@ -74,9 +74,6 @@ tr:hover {
   opacity: 0;
 }
 
-.table-div:hover {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
 
 .center {
     text-align: center;
